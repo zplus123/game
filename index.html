@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funrep Dhani Games - Master Your Skills</title>
+    <link rel="icon" type="image/x-icon" href="./assest/WhatsApp Image 2025-07-22 at 12.12.25 PM.jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6b5ce7;
+            --secondary: #ff6b6b;
+            --accent: #4CAF50;
+            --dark: #0f0c29;
+            --darker: #08061a;
+            --light: #f5f7ff;
+            --gold: #FFD700;
+            --silver: #c0c0c0;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #fff;
+            background: linear-gradient(135deg, var(--darker), var(--dark), #302b63, #24243e);
+            min-height: 100vh;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Enhanced Navbar */
+        header {
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(15px);
+            padding: 0.8rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-shadow: 0 0 15px rgba(107, 92, 231, 0.7);
+        }
+
+        .logo img {
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 15px rgba(107, 92, 231, 0.5);
+        }
+
+        .logo:hover img {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(255, 255, 255, 0.08);
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(107, 92, 231, 0.6);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .hamburger i {
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        /* Main content */
+        main {
+            margin-top: 90px;
+            padding: 2rem 0;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 0 4rem;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(107, 92, 231, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #fff, #e0e0ff, #b5b5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s infinite alternate;
+            margin-top: 50px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e0e0ff;
+            font-weight: 400;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            }
+
+            100% {
+                text-shadow: 0 0 25px rgba(107, 92, 231, 0.8), 0 0 40px rgba(107, 92, 231, 0.6);
+            }
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            color: #fff;
+            padding: 1.4rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(107, 92, 231, 0.5);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-7px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(107, 92, 231, 0.7);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button i {
+            font-size: 1.4rem;
+            transition: transform 0.4s ease;
+        }
+
+        .cta-button:hover i {
+            transform: translateY(-5px);
+        }
+
+        /* Games Grid */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 5rem 0;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            z-index: -1;
+            border-radius: 27px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .game-card:hover::before {
+            opacity: 1;
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            object-fit: cover;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-card:hover img {
+            transform: scale(1.08);
+            filter: brightness(1.05);
+        }
+
+        .game-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .game-card p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .play-button {
+            background: linear-gradient(45deg, var(--accent), #2E7D32);
+            color: white;
+            border: none;
+            padding: 1.1rem 1.8rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 100%;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .play-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #2E7D32, var(--accent));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+        }
+
+        .play-button:hover::before {
+            opacity: 1;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 3.5rem;
+            margin: 5rem 0;
+            backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .video-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre-v2.png');
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .video-section h2 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .videos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .video-wrapper {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.2rem;
+            backdrop-filter: blur(8px);
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.4s ease;
+        }
+
+        .video-wrapper:hover {
+            transform: translateY(-8px);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            border: none;
+        }
+
+        /* Special Offers Section */
+        .special-offers {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            border-radius: 25px;
+            padding: 4rem;
+            margin: 6rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border: 3px solid rgba(255, 215, 0, 0.4);
+        }
+
+        .special-offers::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1511882150382-421056c89033?q=80&w=1000') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .special-offers::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .special-offers h2 {
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.8rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-weight: 700;
+        }
+
+        .special-offers h2 i {
+            font-size: 2.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .points-container {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+
+        .point-item {
+            background: rgba(0, 0, 0, 0.6);
+            border: 3px solid rgba(255, 215, 0, 0.5);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            min-width: 270px;
+            backdrop-filter: blur(8px);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .point-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+            border-color: var(--gold);
+        }
+
+        .point-item h3 {
+            color: var(--gold);
+            font-size: 1.9rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .point-item p {
+            color: #fff;
+            font-size: 1.3rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .divider {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .divider span {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            height: 2px;
+            width: 80%;
+        }
+
+        .info-section {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-section p {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            min-width: 320px;
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
+        }
+
+        .contact-card h3 {
+            color: var(--gold);
+            font-size: 1.7rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-weight: 600;
+        }
+
+        .contact-card p {
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .phone-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 20px rgba(107, 92, 231, 0.4);
+        }
+
+        .phone-link:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(107, 92, 231, 0.6);
+        }
+
+        .play-big {
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .play-big h3 {
+            color: var(--gold);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        /* About Page Styling */
+        #about .about-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 4rem;
+            margin: 3rem 0;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            color: #333;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(107, 92, 231, 0.2);
+        }
+
+        /* f */
+        #about .about-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/light-wool.png');
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        #about .about-content h2 {
+            color: #333;
+            margin-bottom: 3rem;
+            font-size: 2.8rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        #about .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            border-radius: 3px;
+        }
+
+        #about .about-content p {
+            margin-bottom: 1.8rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        #about .about-content h3 {
+            color: var(--primary);
+            margin: 2.5rem 0 1.5rem;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        #about .about-content ul {
+            margin: 1.5rem 0;
+            padding-left: 2.5rem;
+        }
+
+        #about .about-content li {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-left: 2.5rem;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #555;
+            font-weight: 500;
+        }
+
+        #about .about-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            color: #fff;
+            text-align: center;
+            padding: 3.5rem 0;
+            margin-top: 6rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre-v2.png');
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Floating animation for hero elements */
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .videos-container {
+                grid-template-columns: 1fr;
+            }
+
+            .special-offers h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.97);
+                padding: 2rem;
+                gap: 1.2rem;
+                border-bottom: 3px solid var(--primary);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .video-wrapper {
+                padding-bottom: 56.25%;
+            }
+
+            .points-container,
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .point-item,
+            .contact-card {
+                min-width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            #about .about-content {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .cta-button {
+                padding: 1.2rem 2.5rem;
+                font-size: 1.1rem;
+            }
+
+            .special-offers {
+                padding: 3rem 1.5rem;
+            }
+
+            .special-offers h2 {
+                font-size: 2rem;
+                flex-direction: column;
+            }
+
+            .point-item {
+                padding: 1.8rem 1.5rem;
+            }
+
+            .contact-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="./assest/WhatsApp Image 2025-07-22 at 12.12.25 PM.jpeg" alt="Funrep Dhani Logo" height="60px"
+                    width="75px">
+                <span>Funrep Dhani</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home')" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li><a href="#" onclick="showPage('about')" class="nav-link"><i class="fas fa-info-circle"></i> About
+                        Us</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <h1 class="floating">PLAY BIG & WIN BIG!</h1>
+                <h2 class="floating">किती पण आऊट करा रोख घेऊन जावा... 💥 💰 💸</h2>
+                <a href="./assest/Funrep_Dhani.apk" class="cta-button floating">
+                    <i class="fas fa-download"></i> Download Now
+                </a>
+            </section>
+
+            <section id="games" class="games-grid">
+                <div class="game-card">
+                    <img src="./assest/IMG-20250721-WA0009.jpg" alt="Puzzle Master">
+                    <h3>🧩 Puzzle Master</h3>
+                    <p>Test your logical thinking with challenging puzzles that will keep you engaged for hours.</p>
+                </div>
+
+                <div class="game-card">
+                    <img src="./assest/IMG-20250721-WA0010.jpg" alt="Strategy Arena">
+                    <h3>⚔️ Strategy Arena</h3>
+                    <p>Plan your moves carefully in this tactical game that rewards smart thinking over luck.</p>
+                </div>
+
+                <div class="game-card">
+                    <img src="./assest/IMG-20250721-WA0011.jpg" alt="Reflex Challenge">
+                    <h3>⚡ Reflex Challenge</h3>
+                    <p>Improve your reaction time and hand-eye coordination with fast-paced skill challenges.</p>
+                </div>
+            </section>
+
+            <!-- Video Section with YouTube videos -->
+            <section class="video-section">
+                <h2><i class="fas fa-play-circle"></i> Game Previews</h2>
+                <div class="videos-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/0JJtokZmqoY"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/ZSaaEpYfYGM"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Special Offers Section -->
+            <section class="special-offers">
+                <h2>
+                    <i class="fas fa-coins"></i>
+                    💸🎰 BINGO + FAN AB + FAN TARGET 🎰💸
+                    <i class="fas fa-coins"></i>
+                </h2>
+
+                <div class="points-container">
+                    <div class="point-item">
+                        <h3>1 रुपये ला</h3>
+                        <p>9 रुपये</p>
+                    </div>
+
+                    <div class="point-item">
+                        <h3>1 रुपये जोकर ला</h3>
+                        <p>18 रुपये</p>
+                    </div>
+                    <div class="point-item">
+                        <h3>1 रुपये ला</h3>
+                        <p>12 रुपये</p>
+                    </div>
+
+                    <div class="point-item">
+                        <h3>1 रुपये ला</h3>
+                        <p>36 रुपये</p>
+                    </div>
+                </div>
+
+                <div class="divider">
+                    <span></span>
+                </div>
+
+                <div class="info-section">
+                    <p>Play many games on your mobile and win lots of money — the link is given below...</p>
+                    <p class="highlight">PLAY BIG & WIN BIG✅🧿</p>
+                    <a href="./assest/Funrep_Dhani.apk" class="cta-button floating">
+                        <i class="fas fa-download"></i> Download Now
+                    </a>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3><i class="fas fa-phone-alt"></i> Contact Us</h3>
+                        <p>📞 +91 95455 52616</p>
+                        <p>📞 +91 73874 84423</p>
+                        <a href="tel:+919545552616" class="phone-link"><i class="fas fa-phone"></i> Call Now</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3><i class="fas fa-wallet"></i> Payment Options</h3>
+                        <p>रोख कॅश किंवा ऑनलाईन पेयमेन्ट एजंट नेमणे आहे.</p>
+                        <p>24 तास सेवा..</p>
+                    </div>
+                </div>
+
+                <div class="play-big">
+                    <h3>किती पण आऊट करा रोख घेऊन जावा... 💥 💰 💸</h3>
+                </div>
+            </section>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page">
+            <div class="about-content">
+                <h2>About Funrep Dhani Games</h2>
+
+                <p>Our mission is to create skill-based mobile games that challenge players to think strategically,
+                    react quickly, and solve problems creatively. Unlike games that rely on chance, our games reward
+                    skill, practice, and strategic thinking.</p>
+
+                <h3><i class="fas fa-bullseye"></i> Our Vision</h3>
+                <p>We envision a gaming platform where players can continuously improve their abilities while having
+                    fun. Our games are designed to:</p>
+                <ul>
+                    <li>Enhance cognitive function and mental agility</li>
+                    <li>Improve reaction times and hand-eye coordination</li>
+                    <li>Develop strategic thinking and problem-solving skills</li>
+                    <li>Provide entertainment without harmful gambling elements</li>
+                </ul>
+
+                <h3><i class="fas fa-star"></i> What Makes Us Different</h3>
+                <p>Our games are built on the principle of skill over luck. Every victory is earned through practice,
+                    strategy, and improvement. We focus on creating games that:</p>
+                <ul>
+                    <li>Have a clear skill progression system</li>
+                    <li>Reward practice and improvement</li>
+                    <li>Provide fair competition based on ability</li>
+                    <li>Offer educational value alongside entertainment</li>
+                </ul>
+
+                <h3><i class="fas fa-phone"></i> Connect With Us</h3>
+                <p>Have questions or feedback? We'd love to hear from you! Our team is dedicated to creating the best
+                    possible gaming experience for our community.</p>
+                <p>📧 Email: info@Funrep Dhanigames.com<br>
+                    🌐 Website: www.Funrep Dhanigames.com<br>
+                    📱 Follow us on social media for updates and tips!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Funrep Dhani Games. All rights reserved. | Play Responsibly | Skill-Based Entertainment</p>
+            <p>Contact: info@Funrep Dhanigames.com | +91 95455 52616</p>
+        </div>
+    </footer>
+
+    <script>
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Highlight the active link
+            document.querySelector(`a[onclick="showPage('${pageId}')"]`).classList.add('active');
+
+            // Close mobile menu if open
+            document.getElementById('navLinks').classList.remove('active');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile menu toggle
+        document.getElementById('hamburger').addEventListener('click', function () {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Ripple effect for buttons
+        document.querySelectorAll('.play-button, .cta-button, .phone-link').forEach(button => {
+            button.addEventListener('click', function (e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255,255,255,0.4);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.8s ease-out;
+                    pointer-events: none;
+                    z-index: 0;
+                `;
+
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+
+                setTimeout(() => ripple.remove(), 800);
+            });
+        });
+
+        // Add CSS animation for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add floating animation to hero elements
+        const heroElements = document.querySelectorAll('.hero > *');
+        heroElements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
+        });
+    </script>
+</body>
+
+</html>
